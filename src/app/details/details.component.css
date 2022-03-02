@@ -1,3 +1,36 @@
 h2{
     text-align:center;
 }
+.dropdown{
+    float:right;
+}
+
+.dropdown button {
+    border-radius: 50%;
+    background-image: url("../../assets/images/menu.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.dropdown button:hover {
+    outline: none !important;
+    background-color: #bfc1c3;
+    border-color: #9f9f9f;
+}
+
+img{
+    margin: 20px auto;
+    align-items: center; 
+    display: block;
+    height: 300px;
+    width: 300px;
+}
+
+.list-group-item{
+    margin-bottom: 15px;
+}

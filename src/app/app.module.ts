@@ -8,6 +8,9 @@ import { TradeComponent } from './trade/trade.component';
 import { RegisterComponent } from './register/register.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailsComponent } from './details/details.component';
+import { ErrorComponent } from './error/error.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { DetailsComponent } from './details/details.component';
     HomeComponent,
     TradeComponent,
     RegisterComponent,
-    DetailsComponent
+    DetailsComponent,
+    ErrorComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
