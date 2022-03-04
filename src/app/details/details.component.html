@@ -4,16 +4,16 @@
             <button class="btn btn-secondary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Edit</a></li>
-              <li><a class="dropdown-item" href="#">Delete</a></li>
+              <li><a class="dropdown-item" (click)="onEditClicked()">Edit</a></li>
+              <li><a class="dropdown-item" (click)="onDeleteClicked()">Delete</a></li>
             </ul>
           </div>
-        <h2 class="h2">Dogecoin</h2>
+        <h2 class="h2">{{trade.type}}</h2>
         <img src="../../assets/images/cryptocurrencies.png"/>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item"><p class="lead"><b>Name:</b> John Wilson</p></li>
-            <li class="list-group-item"><p class="lead"><b>Description:</b> Dogecoin</p></li>
-            <li class="list-group-item"><p class="lead"><b>Quantity:</b> 5</p></li>
+            <li class="list-group-item"><p class="lead"><b>Name:</b> {{trade.firstName}} {{trade.lastName}}</p></li>
+            <li class="list-group-item"><p class="lead"><b>Description:</b> {{trade.description}}</p></li>
+            <li class="list-group-item"><p class="lead"><b>Quantity:</b> {{trade.quantity}}</p></li>
         </ul>
         <div class="d-grid gap-2">
             <button class="btn btn-success btn-lg" type="button">Trade</button>

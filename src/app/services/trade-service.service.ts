@@ -13,6 +13,17 @@ export class TradeServiceService {
 
   constructor(private http: HttpClient) { }
 
+  async addData(trade){
+      this.http.post(this._baseUrl, trade).subscribe( {
+        next: data => {
+          return true;
+        },
+        error: error => {
+          return false;
+        }
+    });
+  }
+
   getAllTrades(){
     return this.http.get<Trade[]>(this._baseUrl);  
   }
@@ -29,5 +40,26 @@ export class TradeServiceService {
     return this.trade;
   }
 
+  async deleteTrade(trade){
+    this.http.delete(this._baseUrl+trade.id).subscribe( {
+      next: data => {
+        return true;
+      },
+      error: error => {
+        return false;
+      }
+  });
+  }
+
+  async editTrade(trade){
+    this.http.put(this._baseUrl+trade.id, trade).subscribe( {
+      next: data => {
+        return true;
+      },
+      error: error => {
+        return false;
+      }
+  });
+  }
 }
 

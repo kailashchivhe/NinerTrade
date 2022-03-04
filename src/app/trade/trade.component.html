@@ -13,7 +13,7 @@
             <h5 class="card-title">{{data.firstName}} {{data.lastName}}</h5>
             <p class="card-text"><b>Description:</b> {{data.description}}.</p>
             <div class="d-grid gap-2">
-              <a routerLink="/details" class="btn btn-primary">Get Details</a>
+              <a (click)="onGetDetailsClicked(data)" class="btn btn-primary">Get Details</a>
             </div>
           </div>
         </div>
