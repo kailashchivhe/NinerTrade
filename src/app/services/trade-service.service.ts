@@ -41,7 +41,7 @@ export class TradeServiceService {
   }
 
   async deleteTrade(trade){
-    this.http.delete(this._baseUrl+trade.id).subscribe( {
+    this.http.delete(this._baseUrl+trade._id).subscribe( {
       next: data => {
         return true;
       },
@@ -52,7 +52,7 @@ export class TradeServiceService {
   }
 
   async editTrade(trade){
-    this.http.put(this._baseUrl+trade.id, trade).subscribe( {
+    this.http.put(this._baseUrl+trade._id, trade).subscribe( {
       next: data => {
         return true;
       },

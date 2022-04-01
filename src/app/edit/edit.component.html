@@ -2,22 +2,22 @@
 <form class="row g-3" [formGroup]="tradeForm">
     <div class="col-md-6">
         <label class="form-label">First Name</label>
-        <input type="name" class="form-control" id="inputFName4" formControlName="firstName">
+        <input type="name" class="form-control" id="inputFName4" formControlName="firstName" required>
       </div>
       <div class="col-md-6">
         <label class="form-label">Last Name</label>
-        <input type="name" class="form-control" id="inputLName4" formControlName="lastName">
+        <input type="name" class="form-control" id="inputLName4" formControlName="lastName" required>
       </div>
     <div class="col-12">
       <label for="inputDescription" class="form-label">Description</label>
-      <textarea rows="5" type="textarea" class="form-control" id="inputDescription" formControlName="description" >
+      <textarea rows="5" type="textarea" class="form-control" id="inputDescription" formControlName="description" required minlength="10">
       </textarea>
     </div>
     <div class="col-md-6">
       <label for="inputQuantity" class="form-label">Quantity</label>
-      <input type="number" class="form-control" id="inputQuantity" formControlName="quantity">
+      <input type="number" class="form-control" id="inputQuantity" formControlName="quantity" required>
     </div>
     <div class="col-12">
-      <button type="submit"  (click)="onEditClicked()" class="btn btn-primary">Edit</button>
+      <button type="submit"  (click)="onEditClicked()" class="btn btn-primary" [disabled]="!tradeForm.valid">Edit</button>
     </div>
 </form>

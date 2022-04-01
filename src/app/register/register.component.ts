@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Trade } from '../models/trade';
+import { CreateTrade } from '../models/CreateTrade';
 import { TradeServiceService } from '../services/trade-service.service';
 
 @Component({
@@ -11,13 +11,13 @@ import { TradeServiceService } from '../services/trade-service.service';
 })
 export class RegisterComponent implements OnInit {
 
-  trade: Trade;
+  trade: CreateTrade;
   tradeForm: FormGroup;
   
   constructor(private _tradeService: TradeServiceService, private router: Router) { }
 
   ngOnInit() {
-    this.trade = new Trade("","","","","","",0,new Date());
+    this.trade = new CreateTrade("","","","",0);
     this.tradeForm = new FormGroup({
       'firstName': new FormControl("",Validators.required),
       'lastName': new FormControl("",Validators.required),

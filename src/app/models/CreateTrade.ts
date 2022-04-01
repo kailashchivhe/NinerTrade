@@ -1,19 +1,15 @@
-export class Trade {
-
-    _id: string
+export class CreateTrade {
     firstName: String
     lastName: String
     description: String
     type: string
     quantity: Number
     
-    constructor (_id: string,
-        firstName: String,
+    constructor ( firstName: String,
         lastName: String,
         description: String,
         type: string,
         quantity: Number){
-       this._id = _id;
        this.firstName = firstName;
        this.lastName = lastName;
        this.description = description;
