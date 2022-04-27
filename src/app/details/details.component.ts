@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 import { Trade } from '../models/trade';
 import { TradeServiceService } from '../services/trade-service.service';
 
@@ -10,7 +11,7 @@ import { TradeServiceService } from '../services/trade-service.service';
 })
 export class DetailsComponent implements OnInit {
   trade: Trade;
-  constructor( private _tradeService: TradeServiceService, private _router: Router ) { }
+  constructor( private _tradeService: TradeServiceService, private _router: Router, private _authService: AuthService ) { }
 
   ngOnInit() {
     if( this._tradeService.getSelectedTrade() != null )
@@ -29,6 +30,26 @@ export class DetailsComponent implements OnInit {
     }
     else{
       window.alert("Could not delete");
+    }
+  }
+
+  loggedIn(){
+    let isLogged = this._authService.loggedIn();
+    if(isLogged){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  isOwned(){
+    let id = localStorage.getItem("userId");
+    if( this.trade.userId === id ){
+      return true;
+    }
+    else{
+      return false;
     }
   }
 }

@@ -1,0 +1,22 @@
+<div class="container">
+    <h1 class="display-1">Welcome </h1>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th class="h4">Crypto</th>
+            <th class="h4">Quantity</th>
+            <th class="h4">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of trade">
+                <td class="h6">{{data.type}}</td>
+                <td class="h6">{{data.quantity}}</td>
+                <td>
+                    <button type="button" class="btn btn-warning" (click)="onEditClicked(data)">Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="onDeleteClicked(data)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

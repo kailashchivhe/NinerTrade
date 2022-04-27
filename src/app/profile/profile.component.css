@@ -1,0 +1,12 @@
+th{
+    width: 400px;
+    text-align: center;
+}
+td{
+    width: 400px;
+    text-align: center;
+    vertical-align: middle;
+}
+button{
+    margin: 2%;
+}

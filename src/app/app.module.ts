@@ -11,9 +11,15 @@ import { DetailsComponent } from './details/details.component';
 import { ErrorComponent } from './error/error.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EditComponent } from './edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ErrorComponent,
     AboutComponent,
     ContactComponent,
-    EditComponent
+    EditComponent,
+    LoginComponent,
+    SignupComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +44,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard, 
+  {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

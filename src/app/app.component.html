@@ -4,14 +4,17 @@
   <p class="h2">Niner Crypto Trade</p>
   <div class="spacer"></div>
   <ul class="nav justify-content-end">
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="loggedIn()">
       <a class="nav-link" [routerLink]="['register']">Create Trade</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" [routerLink]="['home']">Login</a>
+    <li class="nav-item" *ngIf="!loggedIn()">
+      <a class="nav-link active" aria-current="page" [routerLink]="['login']">Login</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['home']">Sign-Up</a>
+    <li class="nav-item" *ngIf="!loggedIn()" >
+      <a class="nav-link" [routerLink]="['signup']">Sign-Up</a>
+    </li>
+    <li class="nav-item" *ngIf="loggedIn()" >
+      <a class="nav-link" (click)="logout()" >Logout</a>
     </li>
   </ul>
 </div>
@@ -23,6 +26,9 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" [routerLink]="['trade']">Trade</a>
+    </li>
+    <li class="nav-item" *ngIf="loggedIn()">
+      <a class="nav-link" [routerLink]="['profile']">Profile</a>
     </li>
   </ul>
 </div>

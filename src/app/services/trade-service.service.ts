@@ -8,6 +8,7 @@ import { Trade } from '../models/trade';
 export class TradeServiceService {
   
   private _baseUrl = "http://localhost:3000/trade/";
+  private _tradeUrl = "http://localhost:3000/user/trades/";
 
   trade: Trade;
 
@@ -26,6 +27,10 @@ export class TradeServiceService {
 
   getAllTrades(){
     return this.http.get<Trade[]>(this._baseUrl);  
+  }
+
+  getUserTrades(id: string){
+    return this.http.get<Trade[]>(this._tradeUrl+id);
   }
 
   getTradeById(id: string){
