@@ -18,12 +18,11 @@ export class RegisterComponent implements OnInit {
   constructor(private _tradeService: TradeServiceService, private router: Router, private _authService: AuthService) { }
 
   ngOnInit() {
-    this.trade = new CreateTrade("","","","",0,"");
+    this.trade = new CreateTrade("","","","","");
     this.tradeForm = new FormGroup({
       'firstName': new FormControl("",Validators.required),
       'lastName': new FormControl("",Validators.required),
       'description': new FormControl("",Validators.required),
-      'quantity': new FormControl(0,Validators.required),
       'type': new FormControl("",Validators.required),
     });
   }
@@ -32,9 +31,8 @@ export class RegisterComponent implements OnInit {
     this.trade.firstName = this.tradeForm.get('firstName').value;
     this.trade.lastName = this.tradeForm.get('lastName').value;
     this.trade.description = this.tradeForm.get('description').value;
-    this.trade.quantity = this.tradeForm.get('quantity').value;
     this.trade.type = this.tradeForm.get('type').value;
-    this.trade.userId = this._authService.getCurrentUser()._id;
+    this.trade.userId = this._authService.getUserId();
     if( this._tradeService.addData(this.trade) ){
       this.router.navigate(['/trade']);
     }

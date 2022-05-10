@@ -1,17 +1,16 @@
 export class Trade {
 
     _id: string
-    firstName: String
-    lastName: String
-    description: String
+    firstName: string
+    lastName: string
+    description: string
     type: string
-    quantity: Number
     userId: string
     
     constructor (_id: string,
-        firstName: String,
-        lastName: String,
-        description: String,
+        firstName: string,
+        lastName: string,
+        description: string,
         type: string,
         quantity: Number,
         userId: string){
@@ -20,7 +19,6 @@ export class Trade {
        this.lastName = lastName;
        this.description = description;
        this.type = type;
-       this.quantity = quantity;
        this.userId = userId;
     }
 }

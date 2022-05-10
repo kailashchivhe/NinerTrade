@@ -1,20 +1,81 @@
 <div class="container">
-    <h1 class="display-1">Welcome </h1>
-    <table class="table table-striped table-bordered">
+    <h1 class="display-1">Welcome {{currentUser.firstName}}</h1>
+    <h1 class="display-9">Your Available Trades</h1>
+    <table class="table table-striped table-bordered" *ngIf="trade.length>0">
         <thead>
         <tr>
             <th class="h4">Crypto</th>
-            <th class="h4">Quantity</th>
+            <th class="h4">Description</th>
             <th class="h4">Action</th>
         </tr>
         </thead>
         <tbody>
             <tr *ngFor="let data of trade">
                 <td class="h6">{{data.type}}</td>
-                <td class="h6">{{data.quantity}}</td>
+                <td class="h6">{{data.description}}</td>
                 <td>
                     <button type="button" class="btn btn-warning" (click)="onEditClicked(data)">Edit</button>
                     <button type="button" class="btn btn-danger" (click)="onDeleteClicked(data)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h1 class="display-9" *ngIf="watchList.length>0">Watch List</h1>
+    <table class="table table-striped table-bordered" *ngIf="watchList.length>0">
+        <thead>
+        <tr>
+            <th class="h4">Crypto</th>
+            <th class="h4">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of watchList">
+                <td class="h6">{{data.tradeTitle}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="onRemoveClicked(data)">Remove from watchlist</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h1 class="display-9" *ngIf="offerTrades.length>0">Offers</h1>
+    <table class="table table-striped table-bordered" *ngIf="offerTrades.length>0">
+        <thead>
+        <tr>
+            <th class="h4">Crypto</th>
+            <th class="h4">Description</th>
+            <th class="h4">Status</th>
+            <th class="h4">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of offerTrades">
+                <td class="h6">{{data.receiverTradeTitle}}</td>
+                <td class="h6">{{data.receiverTradeDescription}}</td>
+                <td class="h6">{{getStatus(data.status)}}</td>
+                <td>
+                    <button type="button" class="btn btn-success" (click)="onAcceptClicked(data)" *ngIf="!data.status">Accept Offer</button>
+                    <button type="button" class="btn btn-danger" (click)="onCancelClicked(data)" *ngIf="!data.status">Cancel Offer</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h1 class="display-9" *ngIf="requestedUserOffers.length>0">Requested Offers</h1>
+    <table class="table table-striped table-bordered" *ngIf="requestedUserOffers.length>0">
+        <thead>
+        <tr>
+            <th class="h4">Crypto</th>
+            <th class="h4">Description</th>
+            <th class="h4">Status</th>
+            <th class="h4">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of requestedUserOffers">
+                <td class="h6">{{data.receiverTradeTitle}}</td>
+                <td class="h6">{{data.receiverTradeDescription}}</td>
+                <td class="h6">{{getStatus(data.status)}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="onCancelClicked(data)">Cancel Offer</button>
                 </td>
             </tr>
         </tbody>

@@ -61,6 +61,32 @@ export class AuthService
       }
     });
   }
+
+  async getUserInfo(){
+    this.http.get<User>(this._loginUrl+ "/info/"+this.getUserId()).subscribe( {
+      next: data => {
+        this.currentUser = data
+        return true;
+      },
+      error: error => {
+        console.log(error);
+        return false;
+      }
+    });
+  }
+
+  async getUserDataFromId(id){
+    this.http.get<User>(this._loginUrl+ "/info/" + id).subscribe( {
+      next: data => {
+        this.currentUser = data;
+        return data;
+      },
+      error: error => {
+        return null;
+      }
+    });
+  }
+
   async signUp(user){
     this.http.post(this._loginUrl+ "/signup", user).subscribe( {
       next: data => {

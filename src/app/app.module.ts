@@ -20,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { OfferTradesComponent } from './offer-trades/offer-trades.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
     EditComponent,
     LoginComponent,
     SignupComponent,
-    ProfileComponent
+    ProfileComponent,
+    OfferTradesComponent
   ],
   imports: [
     BrowserModule,

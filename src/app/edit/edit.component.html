@@ -13,10 +13,10 @@
       <textarea rows="5" type="textarea" class="form-control" id="inputDescription" formControlName="description" required minlength="10">
       </textarea>
     </div>
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
       <label for="inputQuantity" class="form-label">Quantity</label>
       <input type="number" class="form-control" id="inputQuantity" formControlName="quantity" required>
-    </div>
+    </div> -->
     <div class="col-12">
       <button type="submit"  (click)="onEditClicked()" class="btn btn-primary" [disabled]="!tradeForm.valid">Edit</button>
     </div>

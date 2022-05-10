@@ -8,6 +8,7 @@ import { EditComponent } from './edit/edit.component';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { OfferTradesComponent } from './offer-trades/offer-trades.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { SignupComponent } from './signup/signup.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'trade', component: TradeComponent },
   { path: 'details', component: DetailsComponent },
+  { path: 'offerTrades', component: OfferTradesComponent },
   { path: 'edit', component:EditComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'about', component: AboutComponent },
@@ -26,7 +28,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'profile', canActivate: [AuthGuard], component: ProfileComponent },
-  { path: '**', component: ErrorComponent}
+  { path: '**', component: ErrorComponent }
 ];
 
 @NgModule({

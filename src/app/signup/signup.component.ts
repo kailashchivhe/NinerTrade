@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
     this.userForm = new FormGroup({
       'firstName': new FormControl("",Validators.required),
       'lastName': new FormControl("",Validators.required),
-      'userName': new FormControl("",Validators.required),
+      'userName': new FormControl("",Validators.email),
       'password': new FormControl("",Validators.required),
     });
   }

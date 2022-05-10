@@ -13,11 +13,10 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><p class="lead"><b>Name:</b> {{trade.firstName}} {{trade.lastName}}</p></li>
             <li class="list-group-item"><p class="lead"><b>Description:</b> {{trade.description}}</p></li>
-            <li class="list-group-item"><p class="lead"><b>Quantity:</b> {{trade.quantity}}</p></li>
         </ul>
         <div class="d-grid gap-2">
-            <button class="btn btn-success btn-lg" type="button">Trade</button>
-            <button class="btn btn-primary btn-lg" type="button">Rate it</button>
+            <button class="btn btn-success btn-lg" type="button" (click)="onTradeClicked()">Trade</button>
+            <button class="btn btn-primary btn-lg" type="button" (click)="onWatchClicked()">{{watchListButton}}</button>
         </div>
     </div>
 </div>
