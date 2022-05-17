@@ -28,10 +28,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onCreateClicked(){
-    this.trade.firstName = this.tradeForm.get('firstName').value;
-    this.trade.lastName = this.tradeForm.get('lastName').value;
-    this.trade.description = this.tradeForm.get('description').value;
-    this.trade.type = this.tradeForm.get('type').value;
+    this.trade.firstName = this.tradeForm.get('firstName').value.trim();
+    this.trade.lastName = this.tradeForm.get('lastName').value.trim();
+    this.trade.description = this.tradeForm.get('description').value.trim();
+    this.trade.type = this.tradeForm.get('type').value.trim();
     this.trade.userId = this._authService.getUserId();
     if( this._tradeService.addData(this.trade) ){
       this.router.navigate(['/trade']);

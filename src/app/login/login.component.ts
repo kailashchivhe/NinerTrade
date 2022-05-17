@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   loginUser () 
   {
-    this.loginUserData = {userName: this.loginForm.get('userName').value, password: this.loginForm.get('password').value};
+    this.loginUserData = {userName: this.loginForm.get('userName').value.trim(), password: this.loginForm.get('password').value.trim()};
     if( this._authService.loginUser(this.loginUserData) ){
         alert("Login success");
     }

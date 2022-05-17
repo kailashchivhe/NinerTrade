@@ -107,6 +107,7 @@ export class ProfileComponent implements OnInit {
 
   onAcceptClicked(data){
     if(this._tradeService.acceptOffer(data)){
+      this._router.navigate(['/profile']);
       alert('success');
     }
     else{
@@ -116,6 +117,7 @@ export class ProfileComponent implements OnInit {
 
   onCancelClicked(data){
     if(this._tradeService.decline(data)){
+      this._router.navigate(['/profile']);
       alert('success');
     }
     else{

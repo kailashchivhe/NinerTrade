@@ -31,6 +31,7 @@ export class OfferTradesComponent implements OnInit {
   }
 
   onItemChange(value){
+    console.log(value);
     this.selectedTrade = value;
   }
 

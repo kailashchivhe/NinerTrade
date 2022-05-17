@@ -75,7 +75,7 @@
                 <td class="h6">{{data.receiverTradeDescription}}</td>
                 <td class="h6">{{getStatus(data.status)}}</td>
                 <td>
-                    <button type="button" class="btn btn-danger" (click)="onCancelClicked(data)">Cancel Offer</button>
+                    <button type="button" class="btn btn-danger" (click)="onCancelClicked(data)" *ngIf="!data.status">Cancel Offer</button>
                 </td>
             </tr>
         </tbody>

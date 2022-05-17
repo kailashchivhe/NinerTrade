@@ -28,10 +28,10 @@ export class SignupComponent implements OnInit {
   }
 
   onCreateClicked(){
-    this.user.firstName = this.userForm.get('firstName').value;
-    this.user.lastName = this.userForm.get('lastName').value;
-    this.user.userName = this.userForm.get('userName').value;
-    this.user.password = this.userForm.get('password').value;
+    this.user.firstName = this.userForm.get('firstName').value.trim().toLowerCase();
+    this.user.lastName = this.userForm.get('lastName').value.trim().toLowerCase();
+    this.user.userName = this.userForm.get('userName').value.trim().toLowerCase();
+    this.user.password = this.userForm.get('password').value.trim().toLowerCase();
     if( this._authService.signUp(this.user) ){
       this.router.navigate(['/login']);
     }
